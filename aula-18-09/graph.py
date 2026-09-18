@@ -22,3 +22,34 @@ class Graph:
             self.adjList[sink] = set()
 
         self.adjList[sink].add(source)
+
+
+    def remove_edge(self, u, v):
+        try:
+            self.adjList[u].discard(v)
+            self.adjList[v].discard(u)
+        except KeyError:
+            print(f"Node {u} or {v} not found")
+
+
+    def degree(self, u):
+        return len(self.adjList[u])
+
+    def highest_degree(self):
+        max_degree = -1
+        max_node = None
+        for u in self.adjList:
+            if self.degree(u) > max_degree:
+                max_degree = self.degree(u)
+                max_node = u
+
+        return max_node
+
+    def is_complete(self):
+        nodes = len(self.adjList)
+        for u in self.adjList:
+            neighbors_of_u = len(self.adjList[u])
+            if nodes - 1 != neighbors_of_u:
+                return False
+
+        return True
