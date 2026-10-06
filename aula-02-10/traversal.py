@@ -40,27 +40,6 @@ def dfs_iterative(graph, source):
                     stack.append(neighbor)
 
 
-
-# def dfs_iterative_bug(graph, source):
-    # visited = set()
-    # stack = [source]
-
-    # while stack:
-    #     node = stack[-1]
-    #     unstack = True
-    #     visited.add(node)
-    #     # print(visited, stack, node)
-    #     # input("wait")
-    #     for neighbor in graph[node]:
-    #         if neighbor not in visited:
-    #             stack.append(neighbor)
-    #             print(node, end=' ')
-    #             unstack = False
-    #             break
-    #     if unstack:
-    #         stack.pop()
-
-
 graph = {
     0: {3, 5, 6},
     1: {4},
